@@ -22,9 +22,9 @@ def xDrive(forward, strafe, turn):
     
 
     frontLeftMotor.spin(vex.DirectionType.REVERSE, fl, vex.VelocityUnits.PERCENT)
-    frontRightMotor.spin(vex.DirectionType.FORWARD, fr, vex.VelocityUnits.PERCENT)
+    frontRightMotor.spin(vex.DirectionType.REVERSE, fr, vex.VelocityUnits.PERCENT)
     backLeftMotor.spin(vex.DirectionType.REVERSE, bl, vex.VelocityUnits.PERCENT)
-    backRightMotor.spin(vex.DirectionType.FORWARD, br, vex.VelocityUnits.PERCENT)
+    backRightMotor.spin(vex.DirectionType.REVERSE, br, vex.VelocityUnits.PERCENT)
 
 def chainsaw(turn):
     chainSaw.spin(vex.DirectionType.REVERSE, turn, vex.VelocityUnits.PERCENT)
@@ -40,3 +40,11 @@ while True:
         strafe = controller.axis4.value()  
         turn = controller.axis1.value()
         xDrive(forward, strafe, turn)
+    while controller.buttonB.pressing():
+        chainsaw(-100)
+        forward = controller.axis3.value() 
+        strafe = controller.axis4.value()  
+        turn = controller.axis1.value()
+        xDrive(forward, strafe, turn)
+    chainsaw(0)
+    
