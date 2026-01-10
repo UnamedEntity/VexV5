@@ -13,7 +13,6 @@ cap = vex.Motor(vex.Ports.PORT11, vex.GearSetting.RATIO_6_1, True)
 controller = vex.Controller(vex.ControllerType.PRIMARY)
 reversed = vex.DirectionType.FORWARD
 
-
 def xDrive(forward, strafe, turn, direction):
     fl = forward + strafe + turn
     fr = forward - strafe - turn
@@ -45,20 +44,6 @@ while True:
         xDrive(forward, strafe, turn, reversed)
     while controller.buttonB.pressing():
         chainsaw(-100)
-        forward = controller.axis3.value() 
-        strafe = controller.axis4.value()  
-        turn = controller.axis1.value()
-        xDrive(forward, strafe, turn, reversed)
-        
-    while controller.buttonUp.pressing():
-        capturn(100)
-        forward = controller.axis3.value() 
-        strafe = controller.axis4.value()  
-        turn = controller.axis1.value()
-        xDrive(forward, strafe, turn, reversed)
-
-    while controller.buttonDown.pressing():
-        capturn(100)
         forward = controller.axis3.value() 
         strafe = controller.axis4.value()  
         turn = controller.axis1.value()
